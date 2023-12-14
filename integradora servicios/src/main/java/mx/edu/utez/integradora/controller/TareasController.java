@@ -37,13 +37,8 @@ public class TareasController {
         return new ResponseEntity<>(tareasService.getAllCompletadas(3), HttpStatus.OK);
     }
     @PostMapping("/")
-    public ResponseEntity<Tareas> create(@RequestBody TareaDto tareaDto){
-        return new ResponseEntity<>(tareasService.create(tareaDto.toEntity()), HttpStatus.OK);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Tareas> update(@PathVariable Integer id, @RequestBody TareaDto tareaDto){
-        return new ResponseEntity<>(tareasService.update(id, tareaDto.toEntity()), HttpStatus.OK);
+    public ResponseEntity<Tareas> createOrUpdate(@RequestBody TareaDto tareaDto){
+        return new ResponseEntity<>(tareasService.createOrUpdate(tareaDto.toEntity()), HttpStatus.OK);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity deleteById(@PathVariable Integer id){

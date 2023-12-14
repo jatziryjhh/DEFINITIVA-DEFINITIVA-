@@ -29,6 +29,16 @@ public class MysqlConector {
         return null;
     }
 
+    public static void getTareas(){
+        try (Connection connection = connect()) {
+            if (connection != null) {
+                System.out.println("Conexión exitosa a la base de datos");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void guardarTarea(Tarea tarea) {
         try (Connection connection = connect()) {
             if (connection != null) {
@@ -44,5 +54,33 @@ public class MysqlConector {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void editarTarea(Tarea tarea){
+        try (Connection connection = connect()) {
+            if (connection != null) {
+                String sql = "UPDATE tareas SET estado = ? WHERE id = ?";
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    statement.setString(1, tarea.getEstado());
+                    statement.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void eliminarTarea(Tarea tarea){
+        try (Connection connection = connect()) {
+            if (connection != null) {
+                String sql = "DELETE FROM tareas WHERE id = ?";
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    statement.executeUpdate();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }

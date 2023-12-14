@@ -1,22 +1,33 @@
-let url = 'http://localhost:8080/api/tareas/{id}';
+document.getElementById('editar').addEventListener('submit',function (event) {
+    event.preventDefault();
 
-const mostrarPorEstado = ({estado }) => {
-    document.getElementById('estado').value = estado;
-};
+    const estado = document.getElementById('estado').value;
 
+    const tarea = {
+       estado: estado
+    };
+    editarTarea(tarea)
+});
 
-fetch(url, {
-    method: 'GET',
-    headers: {
-        'Content-Type': 'application/json'
+function editarTarea(tarea) {
+    const url = 'http://localhost:8080/api/tareas/{id}';
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(tarea)
     }
-})
-    .then(response => response.json())
-    .then(tarea => {
-        console.log(tarea);
-        tarea.map(item => mostrarPorEstado(item));
+    .then(response => {
+        if (response.ok) {
+            console.log('Tarea editada exitosamente');
+        } else {
+            console.log('Error al editar la tarea');
+        }
     })
     .catch(error => {
-        console.log(error);
+        console.log("no se puede");
     });
+}
 
+editarTarea()

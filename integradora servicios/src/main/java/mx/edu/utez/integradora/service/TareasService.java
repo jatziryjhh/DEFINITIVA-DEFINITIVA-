@@ -22,14 +22,10 @@ public class TareasService {
     public List<Tareas> findAll(){ return tareasRepository.findAll(Sort.by(Sort.Direction.DESC, "id")); }
 
     @Transactional(rollbackFor = {SQLException.class})
-    public Tareas create(Tareas tareas){
+    public Tareas createOrUpdate(Tareas tareas){
         return tareasRepository.save(tareas);
     }
-    @Transactional(rollbackFor = {SQLException.class})
-    public Tareas update(Integer id, Tareas tareas){
-        tareas.setId(id);
-        return tareasRepository.save(tareas);
-    }
+
     @Transactional(rollbackFor = {SQLException.class})
     public void deleteById(Integer id) {
         tareasRepository.deleteById(id);

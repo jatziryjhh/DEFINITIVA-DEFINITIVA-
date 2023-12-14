@@ -1,19 +1,22 @@
-function eliminarTarea(TareasPendientes) {
-    const readline = require('readline');
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+function eliminarTarea(id){
+    const url = 'http://localhost:8080/api/tareas/{id}';
 
-    rl.question("INGRESA EL ÍNDICE DE LA TAREA QUE DESEAS ELIMINAR: ", function (indice) {
-        if (indice >= 0 && indice < TareasPendientes.length) {
-            TareasPendientes.splice(indice, 1);
-            console.log("LA TAREA SE ELIMINÓ EXITOSAMENTE.");
-        } else {
-            console.log("EL ÍNDICE DE TAREA ES INVÁLIDO.");
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
         }
-        rl.close();
-    });
+    };
+    fetch(url, options)
+        .then(response=> {
+            if (response.ok) {
+                console.log('Tarea eliminada exitosamente');
+            } else {
+                console.log('Error al eliminar la tarea');
+            }
+        })
+        .catch(error=>{
+            console.log("no se puede");
+        });
 }
-
-module.exports = eliminarTarea;
+eliminarTarea()

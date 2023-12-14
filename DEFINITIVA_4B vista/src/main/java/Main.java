@@ -30,6 +30,37 @@ public class Main {
             // Puedes devolver una respuesta de éxito si lo deseas
             return "Tarea guardada exitosamente";
         });
+        get("http://localhost:8080/api/tareas/", (request, response) -> {
+            // Obtener los datos de la solicitud
+            String nombre = request.queryParams("nombre");
+            String descripcion = request.queryParams("descripcion");
+            String fecha = request.queryParams("fecha");
+            String estado = request.queryParams("estado");
 
+            Tarea tarea = new Tarea(nombre, descripcion, fecha, estado);
+
+            MysqlConector.getTareas();
+            return "Tarea consultada exitosamente";
+        });
+        put("http://localhost:8080/api/tareas/{id}", (request, response) -> {
+            String estado = request.queryParams("estado");
+
+            Tarea tarea = new Tarea(null, null, null, estado);
+
+            MysqlConector.editarTarea(tarea);
+            return "Tarea editada exitosamente";
+        });
+
+        delete("http://localhost:8080/api/tareas/{id}", (request, response) -> {
+            String nombre = request.queryParams("nombre");
+            String descripcion = request.queryParams("descripcion");
+            String fecha = request.queryParams("fecha");
+            String estado = request.queryParams("estado");
+
+            Tarea tarea = new Tarea(nombre, descripcion, fecha, estado);
+
+            MysqlConector.eliminarTarea(tarea);
+            return "Tarea eliminada exitosamente";
+        });
     }
 }

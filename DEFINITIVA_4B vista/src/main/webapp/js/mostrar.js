@@ -13,10 +13,10 @@ data.map(Tarea=>content+=`<div>
         <td>${Tarea.estado}</td>
 
         <td class="align-items-center">
-            <a class="btn btn-primary" href="modificar.html?id=${estado}" id="editarEnlace">Editar</a>
+            <button type="submit" class="btn btn-primary" id="modificar"><a href="modificar.html?id=${Tarea.id}">EDITAR</button>
         </td>
         <td class="align-items-center">
-            <a class="btn btn-danger" href="eliminar.html?id=${id}" id="editarEnlace">Eliminar</a>
+            <button type="submit" class="btn btn-primary" id="eliminar"><a href="eliminar.html?id=${Tarea.id}">ELIMINAR</button>
         </td>
       </tr>
 </div>`)
