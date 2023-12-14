@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>INTEGRADORA</title>
+    <link rel="stylesheet" href="../assets/css/pantallas.css">
+</head>
+
+<body>
+<header>
+    <img src="../assets/img/utez.png" alt="logo Utez" id="left-image">
+    <h1 id="title">INTEGRADORA ESTRUCTURA DE DATOS</h1>
+    <img src="../assets/img/datid.png" alt="Logo DATID" id="right-image">
+</header>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <div id="formulario"
+         style="display: flex; justify-content: space-around; align-items: center; height: 100px; margin-top: 20px;">
+        <form id="formularioAgregar" style="text-align: center">
+            <h1>AGREGAR TAREAS</h1>
+            <input type="text" id="nombre" name="nombre" placeholder="NOMBRE">
+            <input type="text" id="descripcion" name="descripcion" placeholder="DESCRIPCION">
+            <input type="text" id="fecha" name="fecha" placeholder="FECHA">
+
+            <style>
+                .big-button {
+                    display: block;
+                    width: 200px;
+                    margin: 0 auto;
+                    padding: 15px 30px;
+                    border-radius: 25px;
+                    background-color: #2ecc71;
+                    border: 2px solid #27ae60;
+                    color: #ffffff;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+                }
+
+                .big-button:hover {
+                    background-color: #27ae60;
+                    border-color: #219653;
+                }
+            </style>
+            <button type="submit" class="big-button" id="agregar">AGREGAR</button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div id="button-containes"
+             style="display: flex; justify-content: space-around; align-items: center; height: 100px; margin-top: 20px;">
+            <button type="submit" class="big-button"><a href="../index.html" style="text-align: center">PRINCIPAL</a>
+            </button>
+        </div>
+    </div>
+</div>
+<div id="response"></div>
+
+<script src="../js/agregar.js">
+    // $(document).ready(function() {
+    //     $('#formularioAgregar').submit(function(e) {
+    //         e.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    //         // Obtiene los valores del formulario
+    //         var nombre = $('#nombre').val();
+    //         var descripcion = $('#descripcion').val();
+    //         var fecha = $('#fecha').val();
+    //         var estado = $('#estado').val();
+
+    //         // Crea un objeto con los datos del formulario
+    //         var formData = {
+    //             nombre: nombre,
+    //             descripcion: descripcion,
+    //             fecha: fecha,
+    //             estado: estado
+    //         };
+
+    //         // Envía los datos al servidor utilizando AJAX
+    //         $.ajax({
+    //             type: 'POST',
+    //             url: 'http://localhost:8080', // Ruta del endpoint en el servidor que procesará los datos
+    //             data: formData,
+    //             success: function(response) {
+    //                 // Maneja la respuesta del servidor aquí
+    //                 console.log(response);
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 // Maneja los errores de la petición AJAX aquí
+    //                 console.log(xhr.responseText);
+    //             }
+    //         });
+    //     });
+    // });
+</script>
+</body>
+
+</html>

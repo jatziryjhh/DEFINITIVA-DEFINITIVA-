@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to right, #1e3799, #3c8dbc);
+    color: #ecf0f1;
+    overflow: hidden;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.8);
+    color: #ecf0f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+#left-image, #right-image {
+    width: 250px;
+    height: 100px;
+}
+#right-image, #right-image {
+    width: 250px;
+    height: 100px;
+}
+
+#title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+}
+
+#big-title {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    margin-top: 40px;
+}
+
+.big-button {
+    font-size: 24px;
+    width: 30%;
+    height: 60%;
+    padding: 20px 0;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards, slideIn 1s forwards, scaleIn 1s forwards;
+}
+
+.big-button:hover {
+    background: linear-gradient(to right, #2ecc71, #3498db);
+    transform: scale(1.1);
+}
+
+.big-button:active {
+    animation: moveDown 0.3s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes moveDown {
+    to {
+        transform: translateY(10px);
+    }
+}
+
+#dropdown-container {
+    text-align: right;
+    margin-top: 40px;
+}
+
+#status-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin-top: 40px;
+}
+
+.status-button {
+    font-size: 24px;
+    width: 20%;
+    padding: 20px 0;
+    background: none;
+    color: #3498db;
+    border: 2px solid #3498db;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards, slideIn 1s forwards, scaleIn 1s forwards;
+}
+
+.status-button:hover {
+    color: #2ecc71;
+    border-color: #2ecc71;
+    transform: scale(1.1);
+}
+
+.status-button:active {
+    animation: moveDown 0.3s forwards;
+}
+
+#task-list {
+    margin-top: 40px;
+    text-align: center;
+}
